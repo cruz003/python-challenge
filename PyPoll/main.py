@@ -1,6 +1,7 @@
 import os
 import csv
 
+#set input file, assumes same folder location as main.py
 csvpath = os.path.join('election_data.csv')
 
 #Set votecount variable to count votes, set candidates list to collect unique candidates and set candidate_count dictionary to collect candidates and tally their votes
@@ -8,7 +9,7 @@ votecount = 0
 candidates =[]
 candidate_count = {}
 
-#Loop through file and find unique candiates and add them to the list.  Increment votecount by one for each record.
+#Loop through file and find unique candiates and add them to the list.  Increment votecount by one for each record to tabulate total number of votes.
 with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile)
     #Skip the Header Row
@@ -35,7 +36,7 @@ for candidate, votes in candidate_count.items():
 
 print("---------------------")
 
-#Determine the winner and print to screen
+#Determine the winner based on max number of votes and print to screen
 winner = max(candidate_count, key=candidate_count.get)
 print("Winner: " + str(winner))
 print('---------------------')

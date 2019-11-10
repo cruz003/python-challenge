@@ -1,6 +1,7 @@
 import os
 import csv
 
+#Set input file, assumes same folder location as main.py
 csvpath = os.path.join('budget_data.csv')
 
 #Open file for input
@@ -37,7 +38,7 @@ with open(csvpath) as csvfile:
     profit_loss = []
     calc_change = []
 
-#Read CSV and store values in List    
+#Read CSV and store values in Lists   
     for row in csvreader:
         month.append(row[0])
         profit_loss.append(int(row[1]))
